@@ -5,19 +5,16 @@ help: ## Show this help
 	@egrep -h '\s##\s' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 install: ## Install the stuff
-	@pipenv install --pre
-	@pipenv run pre-commit install
-	@pipenv run pre-commit autoupdate
+	@poetry install
+	@poetry run pre-commit install
+	@poetry run pre-commit autoupdate
 
-.PHONY: skjold
-skjold: ## Sync config for Windows
-	@pipenv run skjold -v audit @pipenv.lock
 
 .PHONY: flake8
 flake8: ## Flake8
-	@pipenv run flake8
+	@poetry run flake8
 
-test: skjold flake8 ## Make test
+test: flake8 ## Make test
 
 run: ## Run cron
-	@pipenv run python start.py
+	@poetry run python start.py

@@ -1,3 +1,25 @@
+[tool.poetry]
+name = "aircontrolpollin"
+version = "0.1.0"
+description = ""
+authors = ["Fundor333 <fundor333@fundor333.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "*"
+autopep8 = "*"
+flake8 = "*"
+pre-commit = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.black]
 line-length = 79
 include = '\.pyi?$'
@@ -16,8 +38,8 @@ exclude = '''
 '''
 
 [tool.skjold]
-sources = ["pyup", "gemnasium"]  # Sources to check against.
-report_only = true                         # Report only, always exit with zero.
-cache_dir = '.skylt_cache'                 # Cache location (default: `~/.skjold/cache`).
-cache_expires = 86400                      # Cache max. age.
-verbose = true                             # Be verbose.
+sources = ["pyup", "gemnasium"] # Sources to check against.
+report_only = true              # Report only, always exit with zero.
+cache_dir = '.skylt_cache'      # Cache location (default: `~/.skjold/cache`).
+cache_expires = 86400           # Cache max. age.
+verbose = true                  # Be verbose.
