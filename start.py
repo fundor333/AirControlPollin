@@ -102,3 +102,7 @@ def get_pollen():
                     element["indexInfo"]["indexDescription"],
                 )
         console.print(table)
+
+
+get_air()
+get_pollen()
